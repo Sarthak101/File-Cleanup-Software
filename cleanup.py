@@ -66,15 +66,6 @@ def find_file_extensions(file_name):
     else:
         return None
 
-def find_file_extensions(file_name):
-    pattern = r'\.[a-zA-Z0-9]+$'
-
-    match = re.search(pattern, file_name)
-    
-    if match:
-        return match.group(0)
-    else:
-        return None
 
 
 def sortFile(name , ext):
