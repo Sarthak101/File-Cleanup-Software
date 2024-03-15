@@ -47,13 +47,19 @@ def getFiles():
 
 
 def create_empty_logs_file(folder_path):
-    try:
-        logs_file_path = os.path.join(folder_path, 'Logs.txt')
-        with open(logs_file_path, 'w') as logs_file:
-            pass  # No need to write any content, just create an empty file
-        print(f"Empty Logs.txt file created successfully at '{folder_path}'.")
-    except Exception as e:
-        print(f"Error: {e}")
+    folder_path = f"{folder_path}/Organizer"
+    logs_file_path = os.path.join(folder_path, 'Logs.txt')
+    
+    if os.path.exists(logs_file_path):
+        print(f"Logs.txt file already exists at '{folder_path}' with data. Skipping creation.")
+    else:
+        try:
+            with open(logs_file_path, 'w') as logs_file:
+                pass  # No need to write any content, just create an empty file
+            print(f"Empty Logs.txt file created successfully at '{folder_path}'.")
+        except Exception as e:
+            print(f"Error: {e}")
+
 
 
 def find_file_extensions(file_name):
@@ -70,7 +76,7 @@ def find_file_extensions(file_name):
 
 def sortFile(name , ext):
     destDict = {
-        "Docs" : [".docx"],
+        "Docs" : [".docx" ,"xlsx"],
         "Text" : [".txt" , ".csv"],
         "Html" :[".html"],
         "Audio": [".mp3",".aac"],
@@ -130,7 +136,7 @@ typeList = [".docx" ,
                          ".mp4" ,
                            ".aac" ,
                            ".pdf" , 
-                           ".ts" , ".rar" , ".7z" , ".zip" , ".exe" , ".csv"]
+                           ".ts" , ".rar" , ".7z" , ".zip" , ".exe" , ".csv" , "xlsx"]
 
 for file in files:
     if find_file_extensions(file) in typeList:
