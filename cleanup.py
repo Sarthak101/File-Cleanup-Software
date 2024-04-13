@@ -135,8 +135,14 @@ typeList = [".docx" ,
                        ".png" ,
                          ".mp4" ,
                            ".aac" ,
-                           ".pdf" , 
-                           ".ts" , ".rar" , ".7z" , ".zip" , ".exe" , ".csv" , "xlsx"]
+                             ".pdf" , 
+                                ".ts" , 
+                                    ".rar" , 
+                                        ".7z" , 
+                                             ".zip" , 
+                                                 ".exe" , 
+                                                     ".csv" , 
+                                                            "xlsx"]
 
 for file in files:
     if find_file_extensions(file) in typeList:
